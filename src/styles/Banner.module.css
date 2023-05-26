@@ -1,0 +1,58 @@
+.banner {
+  display: flex;
+  align-items: center;
+  max-height: 570px;
+}
+
+.bannerImg {
+  width: 637px;
+  height: 570px;
+  background-image: url("../images/banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+}
+.sale {
+  margin-bottom: 25px;
+  align-self: flex-end;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+.sale span {
+  color: #6c3eb8;
+}
+
+.title {
+  font-weight: 300;
+  font-size: 70px;
+  line-height: 85px;
+  text-align: center;
+  color: #6c3eb8;
+}
+.title span {
+  font-size: 150px;
+  line-height: 183px;
+}
+.wrapper {
+  height: 100%;
+  width: 637px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.shoeImg {
+  position: absolute;
+  bottom: 74px;
+  left: 0;
+}
+
+.pspImg {
+  position: absolute;
+  bottom: -32px;
+  right: 0;
+}

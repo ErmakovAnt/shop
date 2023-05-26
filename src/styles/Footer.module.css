@@ -1,0 +1,54 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #191919;
+  margin-top: 20px;
+  padding: 24px;
+}
+
+.creater {
+  color: #576067;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.creater_name {
+  color: #6c3eb8;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.icon_youtube {
+  width: 22px;
+  height: 22px;
+  fill: #576067;
+}
+.icon_facebook {
+  width: 22px;
+  height: 22px;
+  fill: #576067;
+}
+.icon_inst {
+  width: 22px;
+  height: 22px;
+  fill: #576067;
+}
+.icon_youtube:hover {
+  fill: #6c3eb8;
+}
+.icon_facebook:hover {
+  fill: #6c3eb8;
+}
+.icon_inst:hover {
+  fill: #6c3eb8;
+}

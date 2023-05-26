@@ -1,0 +1,146 @@
+.cart {
+  padding: 25px 32px;
+  width: 950px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #212123;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.image {
+  width: 98px;
+  height: 47px;
+  border-radius: 6px;
+  background-size: 100% 100%;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  color: #ffffff;
+  max-width: 240px;
+}
+
+.category {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: #b8b8b8;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 88px;
+  height: 25px;
+}
+
+.count {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+  color: #576067;
+}
+.decrement {
+  width: 25px;
+  height: 25px;
+  background: #576067;
+  border-radius: 6px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.increment {
+  width: 25px;
+  height: 25px;
+  background: #576067;
+  border-radius: 6px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.increment:hover {
+  background: #6c3eb8;
+}
+.decrement:hover {
+  background: #6c3eb8;
+}
+
+.endPrice {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  color: #6c3eb8;
+}
+
+.close {
+  cursor: pointer;
+}
+.icon_close {
+  width: 13px;
+  height: 13px;
+  stroke: #576067;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.totalPrice {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #b8b8b8;
+}
+
+.footer button {
+  width: 212px;
+  height: 38px;
+}

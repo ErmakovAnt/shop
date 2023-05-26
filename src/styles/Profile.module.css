@@ -1,0 +1,31 @@
+.section {
+  width: 950px;
+}
+.userForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  gap: 20px;
+}
+.userForm input {
+  background: #212123;
+  border: 1px solid #212123;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+  color: #f6f6f7;
+  outline: none;
+}
+
+.userForm input:hover {
+  border: 1px solid #6c3eb8;
+}
+.userForm input:focus {
+  border: 1px solid #6c3eb8;
+}
+
+.userForm button {
+  width: 250px;
+}

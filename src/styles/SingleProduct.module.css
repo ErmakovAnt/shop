@@ -1,0 +1,154 @@
+.singleProduct {
+  width: 950px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.rightPart {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.header {
+  margin: 0;
+}
+
+.price {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #f6f6f7;
+}
+
+.productColor {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #576067;
+  display: flex;
+  gap: 16px;
+}
+.productColor span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #f6f6f7;
+}
+
+.productSize {
+  margin-top: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #576067;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.size {
+  width: 37px;
+  height: 25px;
+  background: #212123;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #f6f6f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.size:hover {
+  background-color: #6c3eb8;
+}
+.activeSize {
+  width: 37px;
+  height: 25px;
+  background: #8b57c6;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #f6f6f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.description {
+  width: 338px;
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #b8b8b8;
+}
+
+.btns {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+.link {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: #576067;
+}
+
+.leftPart {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 485px;
+  height: 375px;
+  gap: 20px;
+}
+
+.picture {
+  background-size: 100% 100%;
+  width: 375px;
+  height: 375px;
+  border-radius: 6px;
+}
+
+.columnPictures {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.singlePicture {
+  background-size: 100% 100%;
+  width: 90px;
+  height: 90px;
+  border-radius: 6px;
+}
+
+.toFavorites {
+  width: 171px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #b8b8b8;
+  background: #576067;
+}

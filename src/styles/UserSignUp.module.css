@@ -1,0 +1,81 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 35, 0.8);
+  z-index: 1;
+}
+.section {
+  height: 919px;
+  width: 320px;
+  background: #191919;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+/* #root {
+  background: rgba(33, 33, 35, 0.8);
+} */
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  cursor: pointer;
+}
+
+.close svg {
+  width: 20px;
+  height: 20px;
+  stroke: #576067;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #f6f6f7;
+  padding: 24px;
+  text-align: center;
+}
+.userForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px;
+}
+.userForm input {
+  background: #212123;
+  border: 1px solid #212123;
+  border-radius: 8px;
+  padding: 12px;
+  width: 100%;
+  color: #f6f6f7;
+  outline: none;
+}
+
+.userForm input:hover {
+  border: 1px solid #6c3eb8;
+}
+.userForm input:focus {
+  border: 1px solid #6c3eb8;
+}
+
+.userForm button {
+  width: 100%;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #576067;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.link:hover {
+  text-decoration: underline;
+}
