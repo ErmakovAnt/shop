@@ -1,32 +1,40 @@
-import { useState } from "react";
-import style from "../../styles/UserSignUp.module.css";
 import { useDispatch } from "react-redux";
 import {
   loginUser,
   toggleForm,
   toggleFormType,
 } from "../../features/users/userSlice";
+import { useFormik } from "formik";
+import * as yup from "yup";
+
+import style from "../../styles/UserSignUp.module.css";
 
 const UserLogin = () => {
   const dispatch = useDispatch();
-  console.log(localStorage.getItem("user"));
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
+
+  const onSubmit = (values, actions) => {
+    dispatch(loginUser(values));
+    closeModal();
+    actions.resetForm();
+  };
+
+  const validationSchema = yup.object().shape({
+    email: yup.string().required("Required").email("Invalid email adress"),
+    password: yup.string().min(4).required("Required"),
   });
 
-  const handleChange = ({ target: { value, name } }) => {
-    setValues({ ...values, [name]: value });
-  };
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
+    useFormik({
+      initialValues: {
+        email: "",
+        password: "",
+      },
+      validationSchema,
+      onSubmit,
+    });
 
   const closeModal = () => {
     dispatch(toggleForm(false));
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    dispatch(loginUser(values));
-    closeModal();
   };
 
   return (
@@ -40,24 +48,31 @@ const UserLogin = () => {
 
         <div className={style.title}>Log in</div>
 
-        <form className={style.userForm} onSubmit={onSubmit}>
+        <form className={style.userForm} onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"
             placeholder="Email"
-            required
             value={values.email}
             onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.email && touched.email ? style.inputError : ""}
           />
+          {errors.email && touched.email && (
+            <p className={style.error}>{errors.email}</p>
+          )}
           <input
             type="password"
             name="password"
             placeholder="Password"
             value={values.password}
             onChange={handleChange}
-            required
+            onBlur={handleBlur}
+            className={errors.email && touched.email ? style.inputError : ""}
           />
-
+          {errors.password && touched.password && (
+            <p className={style.error}>{errors.password}</p>
+          )}
           <div
             className={style.link}
             onClick={() => {
@@ -67,7 +82,7 @@ const UserLogin = () => {
             Create an account
           </div>
 
-          <button>Log in</button>
+          <button type="submit">Log in</button>
         </form>
       </div>
     </>

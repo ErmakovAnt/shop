@@ -4,14 +4,15 @@ import UserLogin from "./UserLogin";
 import { CSSTransition } from "react-transition-group";
 import { useDispatch } from "react-redux";
 import { toggleForm } from "../../features/users/userSlice";
-import style from "../../styles/UserSignUp.module.css";
+
+import "../../styles/UserForm.css";
 
 const UserForm = () => {
   const { showForm, formType } = useSelector(({ user }) => user);
   const dispatch = useDispatch();
 
   const closeModal = (e) => {
-    if (e.target.classList.contains("UserSignUp_wrapper__sdfXu"))
+    if (e.target.classList.contains("userForm__wrapper"))
       dispatch(toggleForm(false));
   };
 
@@ -22,7 +23,7 @@ const UserForm = () => {
       classNames="my-node"
       unmountOnExit
     >
-      <div className={style.wrapper} onClick={closeModal}>
+      <div className="userForm__wrapper" onClick={closeModal}>
         <UserSignUp />
       </div>
     </CSSTransition>
@@ -33,7 +34,7 @@ const UserForm = () => {
       classNames="my-node"
       unmountOnExit
     >
-      <div className={style.wrapper} onClick={closeModal}>
+      <div className="userForm__wrapper" onClick={closeModal}>
         <UserLogin />
       </div>
     </CSSTransition>
