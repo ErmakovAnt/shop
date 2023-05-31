@@ -5,6 +5,7 @@ import {
   addItemToCart,
   postCart,
   removeItemFromCart,
+  removeAllItemsFromCart,
 } from "../../features/users/userSlice";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
@@ -29,6 +30,7 @@ const Cart = () => {
       }),
     };
     dispath(postCart(data));
+    dispath(removeAllItemsFromCart());
   };
 
   return (

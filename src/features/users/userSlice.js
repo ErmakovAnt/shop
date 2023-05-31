@@ -110,6 +110,9 @@ const userSlice = createSlice({
     removeItemFromFavorites: (state, { payload }) => {
       state.favorites = state.favorites.filter(({ id }) => id !== payload.id);
     },
+    removeAllItemsFromCart: (state) => {
+      state.cart = [];
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(createUser.fulfilled, helper);
@@ -124,6 +127,7 @@ export const {
   removeItemFromCart,
   addItemToFavorites,
   removeItemFromFavorites,
+  removeAllItemsFromCart,
 } = userSlice.actions;
 
 export default userSlice.reducer;
