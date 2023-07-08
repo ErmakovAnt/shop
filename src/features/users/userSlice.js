@@ -5,7 +5,7 @@ export const createUser = createAsyncThunk(
   "users/createUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.post(`/registration`, payload);
+      const res = await axios.post(`${BASE_URL}/registration`, payload);
       return res.data;
     } catch (err) {
       console.error(err);
@@ -18,7 +18,7 @@ export const loginUser = createAsyncThunk(
   "users/loginUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.post(`/login`, payload);
+      const res = await axios.post(`${BASE_URL}/login`, payload);
       const login = await axios(`/users`, {
         headers: { Authorization: `Bearer ${res.data.token}` },
       });
@@ -34,7 +34,7 @@ export const updateUser = createAsyncThunk(
   "users/updateUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.put(`/users/${payload._id}`, payload);
+      const res = await axios.put(`${BASE_URL}/users/${payload._id}`, payload);
       return res.data;
     } catch (err) {
       console.error(err);
@@ -47,7 +47,7 @@ export const postCart = createAsyncThunk(
   "users/postCart",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.post(`/carts`, payload);
+      const res = await axios.post(`${BASE_URL}/carts`, payload);
       return res.data;
     } catch (err) {
       console.error(err);
