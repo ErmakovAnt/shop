@@ -14,7 +14,7 @@ const Category = () => {
 
   const filteredByName = (list) => {
     let categoryList = list.filter(
-      ({ category }) => category.toLowerCase() === id.toLowerCase()
+      ({ category }) => category.name.toLowerCase() === id.toLowerCase()
     );
     if (!productName) {
       return categoryList;

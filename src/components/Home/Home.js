@@ -13,9 +13,7 @@ function Home() {
     products: { list, filtered },
     categories,
   } = useSelector((state) => state);
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     if (!list) return;
     dispatch(filteredByPrice(100));

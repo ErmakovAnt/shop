@@ -140,8 +140,9 @@
 .singlePicture {
   background-size: 100% 100%;
   width: 90px;
-  height: 90px;
+  height: 30%;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .toFavorites {

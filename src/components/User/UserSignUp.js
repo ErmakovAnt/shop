@@ -12,6 +12,7 @@ const UserSignUp = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (values, actions) => {
+    console.log(values);
     dispatch(createUser(values));
     closeModal();
     actions.resetForm();
@@ -27,14 +28,14 @@ const UserSignUp = () => {
         "Need correct url adress of image!"
       )
       .required("Please enter website"),
-    name: yup.string().required("Required"),
+    username: yup.string().required("Required"),
   });
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
         email: "",
-        name: "",
+        username: "",
         password: "",
         avatar: "",
       },
@@ -82,7 +83,7 @@ const UserSignUp = () => {
         )}
         <input
           type="text"
-          name="name"
+          name="username"
           placeholder="Username"
           value={values.name}
           onChange={handleChange}

@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "../../utils/constans";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
   async (_, thunkAPI) => {
     try {
-      const res = await axios(`${BASE_URL}`);
+      const res = await axios(`/products`);
       return res.data;
     } catch (err) {
       console.error(err);
@@ -29,9 +28,8 @@ const productsSlice = createSlice({
     },
     getRelatedProducts: (state, { payload }) => {
       const shuffle = (arr) => [...arr].sort(() => 0.5 - Math.random());
-
       state.related = shuffle(
-        state.list.filter(({ category }) => category === payload)
+        state.list.filter((item) => item.category.name === payload)
       );
     },
   },

@@ -16,18 +16,18 @@ const Favorites = () => {
       <div className={style.header}>Favorites</div>
       <TransitionGroup>
         {favorites.map((item) => {
-          const { image, id, title, category, price } = item;
+          const { images, id, title, category, price } = item;
           return (
             <CSSTransition timeout={300} classNames="my-node" key={id}>
               <div className={style.wrapper}>
                 <div className={style.info}>
                   <div
                     className={style.image}
-                    style={{ background: `url(${image})` }}
+                    style={{ backgroundImage: `url(${images[0]})` }}
                   />
                   <div className={style.itemInfo}>
                     <div className={style.title}>{title}</div>
-                    <div className={style.category}>{category}</div>
+                    <div className={style.category}>{category.name}</div>
                   </div>
                 </div>
                 <div className={style.price}>{price}$</div>

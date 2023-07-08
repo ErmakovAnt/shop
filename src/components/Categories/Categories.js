@@ -1,18 +1,22 @@
 import { Link } from "react-router-dom";
 import style from "../../styles/Categories.module.css";
-import { categoryImg } from "../../utils/categoryImg";
-const Categories = ({ categories = [], title }) => {
+
+const Categories = ({ categories, title }) => {
   return (
     <section className={style.categories}>
       <h2 className={style.header}>{title}</h2>
       <div className={style.wrapper}>
-        {categories.map((cat, i) => (
-          <Link to={`/categories/${cat}`} key={i} className={style.link}>
+        {categories.map((cat) => (
+          <Link
+            to={`/categories/${cat.name}`}
+            key={cat._id}
+            className={style.link}
+          >
             <div
               className={style.image}
-              style={{ backgroundImage: `url(${categoryImg[i]})` }}
+              style={{ backgroundImage: `url(${cat.image})` }}
             />
-            <div className={style.name}>{cat}</div>
+            <div className={style.name}>{cat.name}</div>
           </Link>
         ))}
       </div>

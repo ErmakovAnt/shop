@@ -9,11 +9,10 @@ const Profile = () => {
   const { currentUser } = useSelector(({ user }) => user);
   const [values, setValues] = useState({
     email: "",
-    name: "",
+    username: "",
     password: "",
     avatar: "",
   });
-
   const handleChange = ({ target: { value, name } }) => {
     setValues({ ...values, [name]: value });
   };
@@ -24,13 +23,13 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    if (!currentUser.name) return;
-    setValues(currentUser);
+    if (!currentUser.username) return;
+    setValues({ ...currentUser, password: "" });
   }, [currentUser]);
 
   return (
     <section className={style.section}>
-      {!currentUser.name ? (
+      {!currentUser.username ? (
         <span>You need to log in</span>
       ) : (
         <form className={style.userForm} onSubmit={onSubmit}>
@@ -52,10 +51,10 @@ const Profile = () => {
           />
           <input
             type="text"
-            name="name"
+            name="username"
             placeholder="Username"
             required
-            value={values.name}
+            value={values.username}
             onChange={handleChange}
           />
           <input

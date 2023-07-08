@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "../../utils/constans";
 
 export const getProduct = createAsyncThunk(
   "product/getProduct",
   async (id, { rejectWithValue }) => {
     try {
-      const res = await axios(`${BASE_URL}/${id}`);
+      const res = await axios(`/products/${id}`);
       return res.data;
     } catch (error) {
       console.log(error);

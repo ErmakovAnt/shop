@@ -16,12 +16,13 @@ function App() {
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getProducts());
-    dispatch(
-      loginUser({
-        email: localStorage.getItem("userName"),
-        password: localStorage.getItem("password"),
-      })
-    );
+
+    // dispatch(
+    //   loginUser({
+    //     email: localStorage.getItem("userName"),
+    //     password: localStorage.getItem("password"),
+    //   })
+    // );
   }, [dispatch]);
 
   return (

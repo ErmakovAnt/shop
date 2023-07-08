@@ -15,8 +15,6 @@ import Products from "../Products/Products";
 
 import style from "../../styles/SingleProduct.module.css";
 
-const SIZES = [4.5, 5, 5.5];
-
 const SingleProduct = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -27,10 +25,9 @@ const SingleProduct = () => {
   } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(getRelatedProducts(good.category));
+    dispatch(getRelatedProducts(good.category?.name));
     dispatch(getProduct(id));
-  }, [dispatch, id, good.category]);
-
+  }, [dispatch, id, good.category?.name]);
   return (
     <>
       <App good={good} />
@@ -40,13 +37,15 @@ const SingleProduct = () => {
 };
 
 const App = ({ good }) => {
-  const { image, title, price, description } = good;
+  const { images = [], title, price, description, sizes = [] } = good;
+
   const { currentUser } = useSelector(({ user }) => user);
   const dispatch = useDispatch();
   const [currentSize, setCurrentSize] = useState("");
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const addToCart = () => {
-    if (!currentUser.name) dispatch(toggleForm(true));
+    if (!currentUser.username) dispatch(toggleForm(true));
     dispatch(addItemToCart(good));
   };
 
@@ -59,25 +58,19 @@ const App = ({ good }) => {
       <div className={style.leftPart}>
         <div
           className={style.picture}
-          style={{ backgroundImage: `url(${image})` }}
+          style={{
+            backgroundImage: `url(${images[currentSlide]})`,
+          }}
         />
         <div className={style.columnPictures}>
-          <div
-            className={style.singlePicture}
-            style={{ backgroundImage: `url(${image})` }}
-          />
-          <div
-            className={style.singlePicture}
-            style={{ backgroundImage: `url(${image})` }}
-          />
-          <div
-            className={style.singlePicture}
-            style={{ backgroundImage: `url(${image})` }}
-          />
-          <div
-            className={style.singlePicture}
-            style={{ backgroundImage: `url(${image})` }}
-          />
+          {images.map((image, i) => (
+            <div
+              key={i}
+              className={style.singlePicture}
+              style={{ backgroundImage: `url(${image})` }}
+              onClick={() => setCurrentSlide(i)}
+            />
+          ))}
         </div>
       </div>
       <div className={style.rightPart}>
@@ -88,7 +81,7 @@ const App = ({ good }) => {
         </div>
         <div className={style.productSize}>
           Sizes:
-          {SIZES.map((size) => (
+          {sizes.map((size) => (
             <div
               onClick={() => {
                 setCurrentSize(size);
@@ -123,5 +116,4 @@ const App = ({ good }) => {
     </section>
   );
 };
-
 export default SingleProduct;

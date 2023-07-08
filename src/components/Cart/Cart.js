@@ -23,13 +23,13 @@ const Cart = () => {
 
   const addProduct = () => {
     const data = {
-      userId: 5,
       date: Date(),
       products: cart.map((item) => {
         return { productId: item.id, quantity: item.quantity };
       }),
     };
     dispath(postCart(data));
+    console.log(data);
     dispath(removeAllItemsFromCart());
   };
 
@@ -38,18 +38,20 @@ const Cart = () => {
       <div className={style.header}>Your cart</div>
       <TransitionGroup>
         {cart.map((item) => {
-          const { image, id, title, category, price, quantity } = item;
+          const { images = [], id, title, category, price, quantity } = item;
           return (
             <CSSTransition timeout={300} classNames="my-node" key={id}>
               <div className={style.wrapper}>
                 <div className={style.info}>
                   <div
                     className={style.image}
-                    style={{ background: `url(${image})` }}
+                    style={{
+                      backgroundImage: `url(${images[0]})`,
+                    }}
                   />
                   <div className={style.itemInfo}>
                     <div className={style.title}>{title}</div>
-                    <div className={style.category}>{category}</div>
+                    <div className={style.category}>{category.name}</div>
                   </div>
                 </div>
                 <div className={style.price}>{price}$</div>

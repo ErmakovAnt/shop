@@ -4,20 +4,21 @@ import { useSelector } from "react-redux";
 
 const Sidebar = () => {
   const { list } = useSelector(({ categories }) => categories);
+
   return (
     <section className={style.sidebar}>
       <div>
         <h2>Categories</h2>
         <ul className={style.list}>
-          {list.map((item, id) => (
-            <li key={id} style={{ marginTop: 12 }}>
+          {list.map((item, _id) => (
+            <li key={_id} style={{ marginTop: 12 }}>
               <NavLink
                 className={({ isActive }) =>
                   `${style.link} ${isActive ? style.active : ""}`
                 }
-                to={`/categories/${item}`}
+                to={`/categories/${item.name}`}
               >
-                {item}
+                {item.name}
               </NavLink>
             </li>
           ))}

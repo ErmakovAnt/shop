@@ -18,12 +18,12 @@ const Header = () => {
 
   const {
     showForm,
-    currentUser: { name, avatar },
+    currentUser: { username, avatar },
     cart,
   } = useSelector(({ user }) => user);
 
   const handleClick = () => {
-    if (!name) dispatch(toggleForm(!showForm));
+    if (!username) dispatch(toggleForm(!showForm));
     else {
       navigate(ROUTES.PROFILE);
     }
@@ -46,7 +46,7 @@ const Header = () => {
       <div className={style.info}>
         <div className={style.user} onClick={handleClick}>
           <img src={avatar ? avatar : vector} alt="user" />
-          <div className={style.username}> {name ? name : "Guest"}</div>
+          <div className={style.username}> {username ? username : "Guest"}</div>
         </div>
       </div>
       <form className={style.form}>
@@ -69,7 +69,7 @@ const Header = () => {
               ? "Loading"
               : !searchedProduct.length
               ? "No results"
-              : searchedProduct.map(({ id, title, image }) => {
+              : searchedProduct.map(({ id, title, images }) => {
                   return (
                     <Link
                       to={`/product/${id}`}
@@ -79,7 +79,7 @@ const Header = () => {
                     >
                       <div
                         className={style.image}
-                        style={{ backgroundImage: `url(${image})` }}
+                        style={{ backgroundImage: `url(${images[0]})` }}
                       ></div>
                       <div>{title}</div>
                     </Link>

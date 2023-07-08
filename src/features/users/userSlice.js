@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { USER_URL } from "../../utils/constans";
 
 export const createUser = createAsyncThunk(
   "users/createUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.post(`${USER_URL}/users`, payload);
+      const res = await axios.post(`/registration`, payload);
       return res.data;
     } catch (err) {
       console.error(err);
@@ -19,9 +18,9 @@ export const loginUser = createAsyncThunk(
   "users/loginUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.post(`${USER_URL}/auth/login`, payload);
-      const login = await axios(`${USER_URL}/auth/profile`, {
-        headers: { Authorization: `Bearer ${res.data.access_token}` },
+      const res = await axios.post(`/login`, payload);
+      const login = await axios(`/users`, {
+        headers: { Authorization: `Bearer ${res.data.token}` },
       });
       return login.data;
     } catch (err) {
@@ -35,7 +34,7 @@ export const updateUser = createAsyncThunk(
   "users/updateUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.put(`${USER_URL}/users/${payload.id}`, payload);
+      const res = await axios.put(`/users/${payload._id}`, payload);
       return res.data;
     } catch (err) {
       console.error(err);
@@ -48,7 +47,7 @@ export const postCart = createAsyncThunk(
   "users/postCart",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.post("https://fakestoreapi.com/carts", payload);
+      const res = await axios.post(`/carts`, payload);
       return res.data;
     } catch (err) {
       console.error(err);
