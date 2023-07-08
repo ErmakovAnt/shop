@@ -29,7 +29,6 @@ const Cart = () => {
       }),
     };
     dispath(postCart(data));
-    console.log(data);
     dispath(removeAllItemsFromCart());
   };
 
