@@ -6,11 +6,23 @@ This project showcases the implementation of an online store featuring various c
 
 ## 🚀 Installation
 
-1. Clone this repository: `git clone https://github.com/ErmakovAnt/shop.git`
-2. Navigate to the project directory: `cd shop`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to interact with the app.
+1. Clone this repository:
+```
+git clone https://github.com/ErmakovAnt/shop.git
+```
+3. Navigate to the project directory:
+```
+cd shop
+```
+5. Install dependencies:
+```
+npm install
+```
+7. Start the development server:
+```
+npm start
+```
+9. Open your web browser and visit [http://localhost:3000](http://localhost:3000) to interact with the app.
 
 ⚠️ **Important**!
 To fetch data from the API, an environment variable is used. To properly connect to the API, replace **process.env.REACT_APP_API_URL** with **https://shop-backendmern.onrender.com** in the **src/utils/constant.js file**.
